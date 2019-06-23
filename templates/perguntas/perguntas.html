@@ -1,0 +1,57 @@
+{% include "header.html" %}
+
+{% block body %}
+<div class="container">
+
+    <div class="row">
+
+        <div class="col md-12">
+
+            <h2>Lista de Perguntas<button type="button" class="btn btn-success  pull-right" data-toggle="modal"
+                    data-target="#myModal" onclick="rederecionar_perguntas_insert()" >Adicionar Nova Pergunta</button></h2>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Serial</th>
+                    <th>Pergunta</th>
+                    <th>Pergunta SQL</th>
+                </tr>
+                {% for row in perguntas %}
+                <tr>
+                    <td>{{row['pergunta_id']}}</td>
+                    <td>{{row['pergunta']}}</td>
+                    <td>{{row['pergunta_sql']}}</td>
+                    <td>
+                        <a href="/v1.0/perguntas/update/{{row['pergunta_id']}}" class="btn btn-warning btn-xs" data-toggle="modal"
+                            >Editar</a>
+                        <!-- <a data-target="#modaledit">Editar</a> -->
+                        <a href="/v1.0/perguntas/delete/{{row['pergunta_id']}}" class="btn btn-danger btn-xs"
+                            onclick="return confirm('Tem a certeza que quer eleminar?')">Eleminar</a>
+                    </td>
+                </tr>
+
+        </div>
+
+
+        {% endfor  %}
+        </table>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+{% endblock %}
+
+
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+
+<script type="text/javascript" src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+
+<script>
+    function rederecionar_perguntas_insert(){
+        location.href = "http://127.0.0.1:3000/v1.0/perguntas/insert/"
+    }
+</script>

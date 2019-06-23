@@ -1,0 +1,108 @@
+{% include "header.html" %}
+
+{% block body %}
+
+<div class="modal-dialog">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <button type="button" class="close" data-dismiss="modal" onclick="rederecionar_alunos()" >&times;</button>
+
+            <h4 class="modal-title">Inserir Informação</h4>
+
+        </div>
+
+        <div class="modal-body">
+            
+            <form id="aluno_insert">
+
+                <div class="form-group">
+
+                    <label>Nome:</label>
+                    <input type="hidden" name="id" value="">
+
+                    <input type="text" class="form-control" name="nome" value="">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Numero:</label>
+
+                    <input type="text" class="form-control" name="numero" value="">
+
+                </div>
+
+                <div class="form-group">
+
+                        <label>Password:</label>
+    
+                        <input type="text" class="form-control" name="password" value="">
+    
+                </div>
+
+                <div class="form-group">
+
+                    <button class="btn btn-primary" type="submit" onclick="aluno_update()">Inserir</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="rederecionar_alunos()" >Fechar</button>
+
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+
+<script type="text/javascript" src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+
+<script>
+    function aluno_update(evt){
+        try{
+            let formElement = document.getElementById("aluno_insert")
+            let formData = new FormData(formElement)
+            let data = {'nome': formData.get('nome'),
+                        'numero': formData.get('numero'),
+                        'password': formData.get('password')}
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:80/v1.0/alunos/",
+                data: data,
+                //dataType: 'json',
+                success: function(data){
+                    //console.log(data)
+                    //alert(data)
+                    location.href = "http://127.0.0.1:3000/v1.0/alunos/"
+                },
+                error(jqXHR,JQueryXHR,errorThrown){
+                    //console.log(formData)
+                    alert(jqXHR)
+                    alert(JQueryXHR)
+                    alert(errorThrown)
+                    console.log(jqXHR)
+                    console.log(JQueryXHR)
+                    console.log(errorThrown)
+                }
+            })
+        }catch(err){
+            alert(err)
+        }
+    }
+
+    function rederecionar_alunos(){
+        location.href = "http://127.0.0.1:3000/v1.0/alunos/"
+    }
+</script>
