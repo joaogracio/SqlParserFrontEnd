@@ -115,5 +115,76 @@ def respostas():
 
     return render_template('/respostas/respostas.html', respostas = respostas)
 
+@app.route('/v1.0/respostas/insert/')
+def resposta_insert_get():
+    return render_template('/respostas/insert.html')
+
+@app.route('/v1.0/respostas/update/<int:resposta_id>')
+def resposta_update_get(resposta_id):
+        
+    url_inicial = "http://127.0.0.1:80"
+
+    url_final = "/v1.0/respostas/" + str(resposta_id)
+
+    resposta_request = requests.get(url_inicial + url_final)
+
+    resposta = resposta_request.json()
+
+    return render_template('/respostas/update.html', resposta = resposta)
+
+@app.route('/v1.0/respostas/delete/<int:resposta_id>')
+def resposta_delete_get(resposta_id):
+    url_inicial = "http://127.0.0.1:80"
+
+    url_final = "/v1.0/respostas/" + str(resposta_id)
+
+    resposta_request = requests.get(url_inicial + url_final)
+
+    resposta = resposta_request.json()
+
+    return render_template('/respostas/delete.html', resposta = resposta)
+
+@app.route('/v1.0/resultados/')
+def resultados():
+
+    url_inicial = "http://127.0.0.1:80"
+
+    url_final = "/v1.0/resultados/" 
+
+    resultados_request = requests.get(url_inicial + url_final)
+
+    resultados = resultados_request.json()
+
+    return render_template('/resultados/resultados.html', resultados = resultados)
+
+@app.route('/v1.0/resultados/insert/')
+def resultado_insert_get():
+    return render_template('/resultados/insert.html')
+
+@app.route('/v1.0/resultados/update/<int:resultado_id>')
+def resultado_update_get(resultado_id):
+        
+    url_inicial = "http://127.0.0.1:80"
+
+    url_final = "/v1.0/resultados/" + str(resultado_id)
+
+    resultado_request = requests.get(url_inicial + url_final)
+
+    resultado = resultado_request.json()
+
+    return render_template('/resultados/update.html', resultado = resultado)
+
+@app.route('/v1.0/resultados/delete/<int:resultado_id>')
+def resultado_delete_get(resultado_id):
+    url_inicial = "http://127.0.0.1:80"
+
+    url_final = "/v1.0/resultados/" + str(resultado_id)
+
+    resultado_request = requests.get(url_inicial + url_final)
+
+    resultado = resultado_request.json()
+
+    return render_template('/resultados/delete.html', resultado = resultado)
+
 if __name__ == '__main__':
     app.run(port=3000,debug=True)

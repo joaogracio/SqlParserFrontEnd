@@ -14,13 +14,15 @@
                 <tr>
                     <th>Serial</th>
                     <th>Resposta SQL</th>
-                    <!--<th>Pergunta SQL</th>-->
+                    <th>Aluno_Aluno_ID</th>
+                    <th>Pergunta_Pergunta_ID</th>
                 </tr>
                 {% for row in respostas %}
                 <tr>
                     <td>{{row['resposta_id']}}</td>
                     <td>{{row['resposta_sql']}}</td>
-                    <!--<td>{{row['pergunta_sql']}}</td>-->
+                    <td>{{row['aluno_aluno_id']}}</td>
+                    <td>{{row['pergunta_pergunta_id']}}</td>
                     <td>
                         <a href="/v1.0/respostas/update/{{row['resposta_id']}}" class="btn btn-warning btn-xs" data-toggle="modal"
                             >Editar</a>
