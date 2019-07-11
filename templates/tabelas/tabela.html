@@ -1,0 +1,43 @@
+{% include "header.html" %}
+
+{% block body %}
+<div class="container">
+
+    <div class="row">
+
+        <div class="col md-12">
+
+            <h2>Pergunta</h2>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Tabela ID</th>
+                    <th>Nome</th>
+                </tr>
+                <tr>
+                    <td>{{tabela['tabela_id']}}</td>
+                    <td>{{tabela['nome']}}</td>
+                </tr>
+            </table>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+{% endblock %}
+
+<button type="button" class="btn btn-secondary"  pull-right" data-toggle="modal"
+                    data-target="#myModal" onclick="rederecionar('http://127.0.0.1:3000/v1.0/')" >Voltar ao Menu Inicial</button>
+
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+
+<script type="text/javascript" src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+
+<script>
+    function rederecionar(location_href){
+        location.href = location_href
+    }
+</script>

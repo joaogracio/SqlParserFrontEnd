@@ -1,0 +1,58 @@
+{% include "header.html" %}
+
+{% block body %}
+<div class="container">
+
+    <div class="row">
+
+        <div class="col md-12">
+
+            <h2>Pergunta</h2>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Resposta ID</th>
+                    <th>Resposta SQL</th>
+                    <th>Aluno ID</th>
+                    <th>Pergunta ID</th>
+                    <th>Resultado ID</th>
+                    <th>resultado_Pergunta_Pergunta_ID</th>
+                </tr>
+                <tr>
+                    <td>{{resposta['resposta_id']}}</td>
+                    <td>{{resposta['resposta_sql']}}</td>
+                    <td>{{resposta['aluno_aluno_id']}}</td>
+                    <td>{{resposta['pergunta_pergunta_id']}}</td>
+                    <td>{{resposta['resultado_Resultado_id']}}</td>
+                    <td>{{resposta['resultado_Pergunta_Pergunta_id']}}</td>
+                    <td>
+                        <ul>
+                            {% for each in tabelas %}
+                                <li><a href="/v1.0/tabela/{{each['tabela_id']}}">{{each['nome']}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+{% endblock %}
+
+<button type="button" class="btn btn-secondary"  pull-right" data-toggle="modal"
+                    data-target="#myModal" onclick="rederecionar('http://127.0.0.1:3000/v1.0/')" >Voltar ao Menu Inicial</button>
+
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+
+<script type="text/javascript" src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
+
+<script>
+    function rederecionar(location_href){
+        location.href = location_href
+    }
+</script>

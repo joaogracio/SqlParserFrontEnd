@@ -57,6 +57,8 @@
 
 {% endblock %}
 
+<button type="button" class="btn btn-secondary"  pull-right" data-toggle="modal"
+                    data-target="#myModal" onclick="rederecionar('http://127.0.0.1:3000/v1.0/')" >Voltar ao Menu Inicial</button>
 
 <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
 
@@ -67,7 +69,7 @@
         //console.log("Entrou aqui eleminar_aluno!!!")
         $.ajax({
             type: "POST",
-            url: "http://127.0.0.1:80/v1.0/pergunta/delete/{{pergunta['numero']}}",
+            url: "http://127.0.0.1:80/v1.0/pergunta/delete/{{pergunta['pergunta_id']}}",
             data: {'_method': 'delete'},
             success: function(data){
                 location.href = "http://127.0.0.1:3000/v1.0/perguntas/"

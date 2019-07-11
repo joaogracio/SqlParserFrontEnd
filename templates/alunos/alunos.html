@@ -8,7 +8,7 @@
         <div class="col md-12">
 
             <h2>Lista de Estudantes<button type="button" class="btn btn-success  pull-right" data-toggle="modal"
-                    data-target="#myModal" onclick="rederecionar_alunos_insert()" >Adicionar Novo Aluno</button></h2>
+                    data-target="#myModal" onclick="rederecionar('http://127.0.0.1:80/v1.0/')" >Adicionar Novo Aluno</button></h2>
 
             <table class="table table-striped">
                 <tr>
@@ -96,13 +96,15 @@
 </div>
 {% endblock %}
 
+<button type="button" class="btn btn-secondary"  pull-right" data-toggle="modal"
+                    data-target="#myModal" onclick="rederecionar('http://127.0.0.1:3000/v1.0/')" >Voltar ao Menu Inicial</button>
 
 <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
 
 <script type="text/javascript" src="{{url_for('static', filename = 'js/bootstrap.min.js')}}"></script>
 
 <script>
-    function rederecionar_alunos_insert(){
-        location.href = "http://127.0.0.1:3000/v1.0/alunos/insert/"
+    function rederecionar(location_href){
+        location.href = location_href
     }
 </script>

@@ -15,30 +15,18 @@
                     <th>Serial</th>
                     <th>Numero Linhas Iguais</th>
                     <th>Numero Linhas Totais</th>
-                    <th>Numero Colunas Iguais</th>
-                    <th>Colunas Totais</th>
-                    <th>Colunas Iguais</th>
-                    <th>Campos Totais</th>
-                    <th>Campos Iguais</th>
-                    <th>Pergunta ID</th>
-                    <th>Resposta ID</th>
-                    <th>Aluno ID</th>
-                    <th>Resposta_Pergunta ID</th>
+                    <th>Tabelas Totais</th>
+                    <th>Tabelas Iguais</th>
+                    <th>Pergunta_Pergunta_ID</th>
                 </tr>
                 {% for row in resultados %}
                 <tr>
                     <td>{{row['resultado_id']}}</td>
                     <td>{{row['numero_linhas_iguais']}}</td>
                     <td>{{row['numero_linhas_totais']}}</td>
-                    <td>{{row['numero_colunas_iguais']}}</td>
-                    <td>{{row['colunas_totais']}}</td>
-                    <td>{{row['colunas_iguais']}}</td>
-                    <td>{{row['campos_totais']}}</td>
-                    <td>{{row['campos_iguais']}}</td>
-                    <td>{{row['pergunta_pergunta_id']}}</td>
-                    <td>{{row['resposta_resposta_id']}}</td>
-                    <td>{{row['resposta_aluno_aluno_id']}}</td>
-                    <td>{{row['resposta_pergunta_pergunta_id']}}</td>
+                    <td>{{row['tabelas_totais']}}</td>
+                    <td>{{row['tabelas_iguais']}}</td>
+                    <td>{{row['Pergunta_Pergunta_id']}}</td>
 
                     <!-- <td>
                         <a href="/v1.0/resultados/update/{{row['resultado_id']}}" class="btn btn-warning btn-xs" data-toggle="modal"
@@ -64,6 +52,8 @@
 </div>
 {% endblock %}
 
+<button type="button" class="btn btn-secondary"  pull-right" data-toggle="modal"
+                    data-target="#myModal" onclick="rederecionar('http://127.0.0.1:3000/v1.0/')" >Voltar ao Menu Inicial</button>
 
 <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
 
